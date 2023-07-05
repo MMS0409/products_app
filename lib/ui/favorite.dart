@@ -1,3 +1,4 @@
+import 'package:bottom_navigators/ui/products.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteScreen extends StatefulWidget {
@@ -15,9 +16,15 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         title: const Text('Favorite'),
         backgroundColor: Colors.indigo,
       ),
-      body: Column(
+      body: ListView(
         children: [
-
+          Column(
+            children: [
+              ...List.generate(like.length, (index) => ListTile(
+                title: Text(like[index][0]),
+              ))
+            ],
+          ),
         ],
       )
     );

@@ -52,12 +52,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                 right: 0,
                                 child: LikeButton(
                                   onTap: (isLiked)async{
-                                    if(isLiked){
+                                    if(!isLiked){
+                                      like.add([price[index][0]]);
+                                      return true;
+                                    }if(like[index].contains(price[index][0])){
+                                      isLiked = true;
                                       like.removeAt(index);
-                                      return false;
                                     }
-                                    like.add([price[index][0]]);
-                                    return true;
+                                    return false;
                                   },
                                   size: 25,
                                   circleColor:
